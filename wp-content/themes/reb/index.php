@@ -59,54 +59,60 @@ get_header(); ?>
     </a>
 </div>
 
-	<div class="container-fluid no-margin no-padding">
-		<div class="index-block col-sm-12 col-md-6 no-padding no-margin">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg" alt="">
-			<h1>Artistes</h1>
-			<a class="btn btn-primary" href="">En savoir plus</a>
-			
-		</div>
-		<div class="index-block col-sm-12 col-md-6 no-padding no-margin">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png" alt="">
-			<div class="block-content">
-				<h1>Concerts</h1>
-				<a class="btn btn-primary" href="">En savoir plus</a>
-			</div>
-		</div>
-	</div>
+<div class="container-fluid no-margin no-padding">
+    <div class="index-block col-sm-12 col-md-6 no-padding no-margin">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg" alt="">
+        <h1>Artistes</h1>
+        <a class="btn btn-primary" href="">En savoir plus</a>
+        
+    </div>
+    <div class="index-block col-sm-12 col-md-6 no-padding no-margin">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png" alt="">
+        <div class="block-content">
+            <h1>Concerts</h1>
+            <a class="btn btn-primary" href="">En savoir plus</a>
+        </div>
+    </div>
+</div>
 
-	<section id="prochaine-dates" class="container-fluid">
-		<div class="container">
-			<h1>Prochaine dates</h1>
-			<div class="col-sm-12 col-md-6">
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-6">
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-				<div class="date">
-					<h4><strong>GROUPE</strong> - Date/Heure</h4>
-					<p>lieu</p>
-				</div>
-			</div>
-		</div>
-	</section>
+<div id="media" class="container-fluid">
+    <div class="col-md-6">
+
+    </div>
+</div>
+
+<section id="prochaine-dates" class="container-fluid">
+    <div class="container">
+        <h1>Prochaine dates</h1>
+        <div class="col-sm-12 col-md-6">
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+            <div class="date">
+                <h4><strong>GROUPE</strong> - Date/Heure</h4>
+                <p>lieu</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>
