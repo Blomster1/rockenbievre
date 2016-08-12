@@ -13,6 +13,9 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
+
+
+
 $concerts = get_posts(array(
     'posts_per_page' => -1,
     'offset'         => 0,
