@@ -370,3 +370,4 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/custom-post-type.php';
+require get_template_directory() . '/inc/taxonomy.php';

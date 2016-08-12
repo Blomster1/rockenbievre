@@ -31,10 +31,10 @@
             <div id="menu-logo">Rock en Bievre</div>
             <ul class="container">
                 <div class="row">
-                    <li class="col-sm-3 text-center"><a href="">Acceuil</a></li>
-                    <li class="col-sm-3 text-center"><a href="">Artistes</a></li>
-                    <li class="col-sm-3 text-center"><a href="">A propos</a></li>
-                    <li class="col-sm-3 text-center"><a href="">Nous contacter</a></li>
+                    <li class="col-sm-3 text-center"><a href="<?= get_home_url() ?>">Acceuil</a></li>
+                    <li class="col-sm-3 text-center"><a href="<?= get_post_type_archive_link( 'band' ); ?>">Artistes</a></li>
+                    <li class="col-sm-3 text-center"><a href="<?= get_permalink(18) ?>">A propos</a></li>
+                    <li class="col-sm-3 text-center"><a href="<?= get_permalink(25) ?>">Nous contacter</a></li>
                 </div>
             </ul>
         </nav>

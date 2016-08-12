@@ -13,36 +13,44 @@
  * @subpackage Twenty_Fifteen
  * @since Twenty Fifteen 1.0
  */
+$artisteEnAvantContainer = get_posts( array(
+    'posts_per_page' => 1,
+    'offset'         => 0,
+    'post_status'    => 'published',
+    'post_type'      => 'artiste_en_avant'
+));
+$artisteEnAvant = get_field('artiste',$artisteEnAvantContainer[0]->ID);
+$bands = get_posts( array(
+    'posts_per_page' => 5,
+    'offset'         => 0,
+    'post_status'    => 'published',
+    'post_type'      => 'band'
+));
 get_header(); ?>
 
 <section id="bands-gallery" class="container-fluid no-padding">
     <div class="row">
-        <div class="col-md-6 main-image col-sm-12 no-padding" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/LZuCfH0.jpg')">
+        <div class="col-md-6 main-image col-sm-12 no-padding" style="background-image: url('<?= get_the_post_thumbnail_url($artisteEnAvant->ID,'slider_size'); ?>')">
+            <div class="col-md-12 text-center">
+                <h2><?= $artisteEnAvant->post_title ?></h2>
+                <a class="btn btn-primary" href="<?= get_permalink($artisteEnAvant->ID) ?>">Voir l'artiste</a>
+            </div>
+
         </div>
         <div class="col-md-6 col-sm-12 no-padding">
             <div class="row">
-                <div class="col-md-6 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg')">
-                </div>
-                <div class="col-md-6 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png')">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png')">
-                </div>
-                <div class="col-md-6 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg')">
-                </div>
+                <?php foreach ($bands as $band): ?>
+                    <?php if($band != $artisteEnAvant): ?>
+                        <div class="col-md-6 no-padding secondary-image" style="background-image: url('<?= get_the_post_thumbnail_url($band->ID,'slider_size') ?>')">
+                            <div class="col-md-12 text-center">
+                                <h2><?= $band->post_title ?></h2>
+                                <a class="btn btn-primary" href="<?= get_permalink($band->ID) ?>">Voir l'artiste</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-    <div class="row">
-            <div class="col-md-3 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg')">
-            </div>
-            <div class="col-md-3 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png')">
-            </div>
-            <div class="col-md-3 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg')">
-            </div>
-            <div class="col-md-3 no-padding secondary-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/LZuCfH0.jpg')">
-            </div>
     </div>
 </section>
 

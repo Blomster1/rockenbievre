@@ -14,38 +14,47 @@
  * @since Twenty Fifteen 1.0
  */
 
-get_header(); ?>
+get_header();
+
+$slides = get_posts( array(
+    'posts_per_page' => -1,
+    'offset'         => 0,
+    'post_status'    => 'published',
+    'post_type'      => 'slider'
+));
+
+?>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <?php for($i=0;$i<count($slides);$i++): ?>
+            <?php if($i=0): ?>
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <?php else: ?>
+                <li data-target="#carousel-example-generic" data-slide-to="<?= $i ?>"></li>
+            <?php endif; ?>
+        <?php endfor; ?>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
+        <?php foreach ($slides as $slide): ?>
         <div class="item active">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/LZuCfH0.jpg" alt="">
+            <img src="<?= get_the_post_thumbnail_url($slide->ID,'slider_size'); ?>" alt="">
             <div class="carousel-caption">
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <h1>Titre</h1>
-                        <p>description</p>
-                        <a  class="btn btn-primary" href="">En savoir plus</a>
+                        <h1><?= $slide->post_title; ?></h1>
+                        <p><?= $slide->post_content; ?></p>
+                        <a  class="btn btn-primary" href=" <?= get_permalink(get_field('lien_du_poste',$slide->ID)->ID); ?>">En savoir plus</a>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="item">
-            <img src="" alt="">
-            <div class="carousel-caption">
-                <h1>Titre</h1>
-                <p>description</p>
-                <a class="btn btn-primary" href="">En savoir plus</a>
-            </div>
-        </div>
+
+        <?php endforeach; ?>
     </div>
 
     <!-- Controls -->
@@ -63,14 +72,14 @@ get_header(); ?>
     <div class="index-block col-sm-12 col-md-6 no-padding no-margin">
         <img src="<?php echo get_template_directory_uri(); ?>/img/1*-nCsLWHAHmwJebVp8hKS0Q.jpeg" alt="">
         <h1>Artistes</h1>
-        <a class="btn btn-primary" href="">En savoir plus</a>
+        <a class="btn btn-primary" href="<?= get_post_type_archive_link( 'band' ); ?>">En savoir plus</a>
         
     </div>
     <div class="index-block col-sm-12 col-md-6 no-padding no-margin">
         <img src="<?php echo get_template_directory_uri(); ?>/img/spotify-yim-049.png" alt="">
         <div class="block-content">
             <h1>Concerts</h1>
-            <a class="btn btn-primary" href="">En savoir plus</a>
+            <a class="btn btn-primary" href="<?= get_post_type_archive_link( 'concert' ); ?>">En savoir plus</a>
         </div>
     </div>
 </div>
